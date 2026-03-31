@@ -24,20 +24,20 @@
             font-family: 'Outfit', sans-serif; 
             background-color: var(--bg);
             color: #e2e8f0;
-            overflow-x: hidden; /* Prevents horizontal scroll on small devices */
+            overflow-x: hidden;
         }
         h1, h2, h3, .nav-logo { 
             font-family: 'Syne', sans-serif; 
             letter-spacing: -0.03em;
         }
-        /* Navbar Glassmorphism */
+        /* Navbar fix */
         .glass {
-            background: rgba(15, 23, 42, 0.85);
+            background: rgba(15, 23, 42, 0.9);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         /* Offset for navigation scroll */
-        section { scroll-margin-top: 80px; }
+        section { scroll-margin-top: 100px; }
 
         .experience-card {
             background: rgba(255, 255, 255, 0.03);
@@ -55,52 +55,208 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        /* Fixed tap targets for mobile links */
+        .nav-link {
+            padding: 8px 4px;
+            display: inline-block;
+        }
     </style>
 </head>
 <body class="selection:bg-blue-500/30">
 
-    <!-- Responsive Navbar -->
-    <nav class="fixed w-full z-50 top-0 py-2 md:py-4 px-4 md:px-6">
-        <div class="max-w-6xl mx-auto flex justify-between items-center glass rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4">
-            <div class="flex items-center gap-3">
-                <div class="text-sm md:text-xl font-extrabold nav-logo uppercase text-white whitespace-nowrap">Soumyadip Ray</div>
-                <div class="h-4 w-[1px] bg-slate-700 hidden sm:block"></div>
-                <div class="text-[9px] font-bold text-blue-400 uppercase tracking-widest hidden lg:block">IISER Bhopal</div>
+    <!-- Fixed & Responsive Navbar -->
+    <nav class="fixed w-full z-50 top-0 py-3 md:py-4 px-3 md:px-6">
+        <div class="max-w-6xl mx-auto flex justify-between items-center glass rounded-xl md:rounded-2xl px-3 md:px-6 py-3">
+            <!-- Full Name -->
+            <div class="flex items-center gap-2 md:gap-4">
+                <div class="text-[13px] md:text-xl font-extrabold nav-logo uppercase text-white whitespace-nowrap">Soumyadip Ray</div>
+                <!-- This divider and college name only shows on bigger screens to save space -->
+                <div class="h-4 w-[1px] bg-slate-700 hidden lg:block"></div>
+                <div class="text-[10px] font-bold text-blue-400 uppercase tracking-[0.2em] hidden lg:block">IISER Bhopal</div>
             </div>
 
-            <!-- Nav Links: Font size scales for mobile -->
-            <div class="flex gap-4 md:gap-8 text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-slate-400">
-                <a href="#about" class="hover:text-white transition">About</a>
-                <a href="#experience" class="hover:text-white transition">Work</a>
-                <a href="#contact" class="text-blue-500 hover:text-blue-400 border-b border-blue-500/30 pb-0.5">Contact</a>
+            <!-- Navigation Links: Optimized for small screens -->
+            <div class="flex gap-2 sm:gap-6 md:gap-8 text-[10px] md:text-[11px] font-bold uppercase tracking-wider text-slate-400 items-center">
+                <a href="#about" class="nav-link hover:text-white transition">About</a>
+                <a href="#experience" class="nav-link hover:text-white transition">Work</a>
+                <a href="#contact" class="nav-link text-blue-500 border-b border-blue-500/30">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section: Dynamic Padding and Text sizing -->
-    <section class="min-h-screen flex items-center px-6 pt-16 md:pt-0">
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center px-6 pt-24 md:pt-0">
         <div class="max-w-5xl mx-auto">
-            <h1 class="text-4xl sm:text-6xl md:text-8xl font-extrabold leading-tight md:leading-[0.9] mb-8" data-aos="fade-up">
+            <h1 class="text-[2.6rem] sm:text-6xl md:text-8xl font-extrabold leading-[1.1] md:leading-[0.9] mb-8" data-aos="fade-up">
                 Analyzing <span class="text-gradient">Policy</span> & <br>Market Risk.
             </h1>
             <p class="text-base md:text-lg text-slate-400 max-w-2xl mb-12 font-light leading-relaxed" data-aos="fade-up" data-aos-delay="100">
                 Third-year Economics Undergraduate at <span class="text-white font-semibold">IISER Bhopal</span>. 
-                Bridging the gap between academic theory and data-driven insights through high-level micro-econometric modeling.
+                Bridging the gap between academic theory and data-driven insights through modeling.
             </p>
             <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="200">
                 <a href="#experience" class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg shadow-blue-500/20 text-center">Explore Projects</a>
-                <!-- LinkedIn Link -->
-                <a href="https://www.linkedin.com/in/soumyadip-ray-404b27382/" target="_blank" class="glass px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-all text-white flex items-center justify-center gap-2">
+                <a href="https://www.linkedin.com/in/soumyadip-ray-404b27382/" target="_blank" class="glass px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-all text-white text-center flex items-center justify-center gap-2">
                     LinkedIn <i class="fa-brands fa-linkedin-in text-blue-400"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- About Section: Stacks on mobile, 2-col on desktop -->
+    <!-- About Section -->
     <section id="about" class="py-16 md:py-24 px-6">
-        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div data-aos="fade-right">
                 <h2 class="text-3xl md:text-4xl font-bold mb-6 md:mb-8">Research <span class="text-blue-500">Focus.</span></h2>
                 <p class="text-slate-400 leading-relaxed mb-6 italic text-sm md:text-base">"I focus on understanding the market better through industry-academia conclaves and academic research."</p>
-                <p class="text-slate-300 leading-relaxed mb-8 text-sm md:text-
+                <p class="text-slate-300 leading-relaxed mb-8 text-sm md:text-base">
+                    My core interests lie in <strong>Development Economics, Finance, and Treasury Analysis</strong>. I am particularly interested in using Data Envelopment Analysis (DEA).
+                </p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-4 bg-white/5 rounded-xl border border-white/10"><p class="text-[9px] md:text-xs font-bold text-blue-400 uppercase mb-1">Expertise</p><p class="text-xs md:text-sm font-semibold">Risk Management</p></div>
+                    <div class="p-4 bg-white/5 rounded-xl border border-white/10"><p class="text-[9px] md:text-xs font-bold text-blue-400 uppercase mb-1">Focus</p><p class="text-xs md:text-sm font-semibold">Portfolio Mngmt</p></div>
+                </div>
+            </div>
+            <div class="glass p-6 md:p-8 rounded-2xl md:rounded-3xl" data-aos="fade-left">
+                <h3 class="text-lg md:text-xl font-bold mb-6 italic">Academic Roadmap</h3>
+                <ul class="space-y-4 text-xs md:text-sm text-slate-400">
+                    <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-blue-500 shrink-0"></span> Econometrics I & II</li>
+                    <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-blue-500 shrink-0"></span> Game Theory</li>
+                    <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-blue-500 shrink-0"></span> Micro-econometric Modeling</li>
+                    <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-blue-500 shrink-0"></span> Development Economics</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Grid -->
+    <section id="experience" class="py-16 md:py-24 px-6 bg-white/[0.01]">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-4">
+                <h2 class="text-3xl md:text-4xl font-bold">Key <span class="text-blue-500">Engagements.</span></h2>
+                <a href="Soumyadip_Ray_CV.pdf" target="_blank" class="text-blue-400 text-[10px] md:text-xs font-bold uppercase tracking-widest border-b border-blue-500/30 pb-1">Click for CV details →</a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <div class="experience-card p-6 md:p-10 rounded-2xl md:rounded-3xl" onclick="openModal('iift-modal')" data-aos="fade-up">
+                    <span class="text-[9px] md:text-[10px] font-bold text-blue-500 uppercase tracking-widest">May - Jul 2025</span>
+                    <h3 class="text-xl md:text-2xl font-bold mt-4 mb-2">IIFT Kolkata Intern</h3>
+                    <p class="text-slate-400 text-xs md:text-sm mb-6 uppercase tracking-tighter">UK-India FTA Potential & Threats</p>
+                    <p class="text-slate-500 text-[10px] font-bold uppercase underline">Expand Details →</p>
+                </div>
+
+                <div class="experience-card p-6 md:p-10 rounded-2xl md:rounded-3xl" onclick="openModal('iit-modal')" data-aos="fade-up" data-aos-delay="100">
+                    <span class="text-[9px] md:text-[10px] font-bold text-blue-500 uppercase tracking-widest">May 2025</span>
+                    <h3 class="text-xl md:text-2xl font-bold mt-4 mb-2">IIT Kharagpur Intern</h3>
+                    <p class="text-slate-400 text-xs md:text-sm mb-6 uppercase tracking-tighter">Port Traffic Data Analysis</p>
+                    <p class="text-slate-500 text-[10px] font-bold uppercase underline">Expand Details →</p>
+                </div>
+
+                <div class="experience-card p-6 md:p-10 rounded-2xl md:rounded-3xl md:col-span-2" onclick="openModal('club-modal')" data-aos="fade-up">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-[9px] md:text-[10px] font-bold text-blue-500 uppercase tracking-widest">Leadership</span>
+                            <h3 class="text-xl md:text-2xl font-bold mt-2">Core Committee | IISERB Economics Club</h3>
+                        </div>
+                        <i class="fa-solid fa-users-line text-xl md:text-2xl text-slate-700"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Stack -->
+    <section id="skills" class="py-16 md:py-32 px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-12">Technical <span class="text-blue-500">Stack.</span></h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <div class="glass p-6 md:p-8 rounded-2xl"><i class="fa-solid fa-square-poll-vertical text-blue-500 text-lg md:text-xl mb-3"></i><h4 class="font-bold text-xs md:text-base">Stata</h4></div>
+                <div class="glass p-6 md:p-8 rounded-2xl"><i class="fa-brands fa-python text-blue-500 text-lg md:text-xl mb-3"></i><h4 class="font-bold text-xs md:text-base">Python</h4></div>
+                <div class="glass p-6 md:p-8 rounded-2xl"><i class="fa-solid fa-chart-pie text-blue-500 text-lg md:text-xl mb-3"></i><h4 class="font-bold text-xs md:text-base">Power BI</h4></div>
+                <div class="glass p-6 md:p-8 rounded-2xl"><i class="fa-solid fa-file-excel text-blue-500 text-lg md:text-xl mb-3"></i><h4 class="font-bold text-xs md:text-base">Excel</h4></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Contact -->
+    <footer id="contact" class="py-16 md:py-32 px-6 border-t border-white/5">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center text-center md:text-left">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-8">Get In <span class="text-blue-500">Touch.</span></h2>
+                    <div class="space-y-6">
+                        <a href="mailto:soumyadip23@iiserb.ac.in" class="flex items-center justify-center md:justify-start gap-4 text-sm md:text-xl hover:text-blue-500 transition">
+                            <i class="fa-solid fa-paper-plane text-blue-500"></i> soumyadip23@iiserb.ac.in
+                        </a>
+                        <p class="text-sm md:text-xl flex items-center justify-center md:justify-start gap-4">
+                            <i class="fa-solid fa-phone-volume text-blue-500"></i> +91 7980529189
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="glass p-8 md:p-10 rounded-[30px] md:rounded-[40px] text-center border-blue-500/10">
+                    <h4 class="font-bold mb-4 italic">Athletic Leadership</h4>
+                    <p class="text-slate-400 text-xs md:text-sm mb-6 leading-relaxed">
+                        Football Coordinator @ IISERB '24-25 <br> Silver Medalist (Football) - IISM25
+                    </p>
+                    <div class="flex justify-center gap-4 md:gap-6">
+                        <a href="https://www.linkedin.com/in/soumyadip-ray-404b27382/" target="_blank" class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-xl bg-white/5 text-slate-400 hover:text-white hover:bg-blue-600 transition-all text-xl md:text-2xl">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="Soumyadip_Ray_CV.pdf" target="_blank" class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-xl bg-white/5 text-slate-400 hover:text-white hover:bg-red-600 transition-all text-xl md:text-2xl">
+                            <i class="fa-solid fa-file-pdf"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-20 md:mt-32 text-[8px] md:text-[10px] text-center text-slate-700 uppercase tracking-widest font-bold">
+                © 2024 Soumyadip Ray | BS Economic Sciences Undergrad
+            </p>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="iift-modal" class="modal hidden fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 bg-black/90">
+        <div class="glass max-w-2xl w-full p-8 md:p-10 rounded-2xl md:rounded-3xl relative overflow-y-auto max-h-[85vh]">
+            <button onclick="closeModal('iift-modal')" class="absolute top-4 right-4 text-slate-500 hover:text-white"><i class="fa-solid fa-xmark text-2xl"></i></button>
+            <h3 class="text-xl md:text-2xl font-bold mb-4">Summer Research Intern @ IIFT Kolkata</h3>
+            <p class="text-blue-500 text-xs md:text-sm font-bold mb-6 italic underline">Supervised by Dr. Bibek Ray Chaudhuri</p>
+            <ul class="space-y-4 text-slate-300 text-xs md:text-sm leading-relaxed">
+                <li>• Studied Non-Tariff barriers (NTB) and GTAP models for trade policy evaluation.</li>
+                <li>• Performed data cleaning and econometric analysis using Stata.</li>
+                <li>• Conducted data collection from official global sources.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="iit-modal" class="modal hidden fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 bg-black/90">
+        <div class="glass max-w-2xl w-full p-8 md:p-10 rounded-2xl md:rounded-3xl relative overflow-y-auto max-h-[85vh]">
+            <button onclick="closeModal('iit-modal')" class="absolute top-4 right-4 text-slate-500 hover:text-white"><i class="fa-solid fa-xmark text-2xl"></i></button>
+            <h3 class="text-xl md:text-2xl font-bold mb-4">Remote Intern @ IIT Kharagpur</h3>
+            <p class="text-blue-500 text-xs md:text-sm font-bold mb-6 italic underline">Supervised by Dr. Anwesha Aditya</p>
+            <ul class="space-y-4 text-slate-300 text-xs md:text-sm leading-relaxed">
+                <li>• Collected and cleaned commodity-wise port traffic datasets using Excel & Power BI.</li>
+                <li>• Extracted insights from port traffic data and created visual summaries.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="club-modal" class="modal hidden fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 bg-black/90">
+        <div class="glass max-w-2xl w-full p-8 md:p-10 rounded-2xl relative">
+            <button onclick="closeModal('club-modal')" class="absolute top-4 right-4 text-slate-500 hover:text-white"><i class="fa-solid fa-xmark text-2xl"></i></button>
+            <h3 class="text-xl md:text-2xl font-bold mb-6">IISERB Economics Club</h3>
+            <ul class="space-y-4 text-slate-300 text-xs md:text-sm leading-relaxed">
+                <li>• Facilitated seminars and talks by visiting researcher and analysts.</li>
+                <li>• Organized community events to promote economic sciences.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        function openModal(id) { document.getElementById(id).classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+        function closeModal(id) { document.getElementById(id).classList.add('hidden'); document.body.style.overflow = 'auto'; }
+        window.onclick = function(e) { if (e.target.classList.contains('modal')) { e.target.classList.add('hidden'); document.body.style.overflow = 'auto'; } }
+    </script>
+</body>
+</html>
